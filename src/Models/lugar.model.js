@@ -2,13 +2,15 @@ const {Schema, model} = require('mongoose');
 
 const lugarSchema = Schema({
     nombre: {type: String, required: true},
+    localidad: {type: String, required: true},// municipio
+    distanciaKm:{type: Number,required: true},
+    coordenadas:{type: Object,required: true},
+    necesitaGuia:{type:Boolean},
+    tieneCosto:{type:Boolean},
     tipo: {type: String}, //cascada, cerro, quebrada, olla, etc
-    departamento: {type: String}, //capital, punilla,colon,etc
-    localidad: {type: String},// municipio
     imagen: {type: String}, //una url de la imagen
-    distanciaKm:{type: Number},
     dificultad:{type: String}, //alta,media,baja
-    enlace:{type:String} //enlace de wikilock con el tramo
+    tramo:{type:String} //enlace de wikilock con el tramo
 
 })
 
