@@ -1,8 +1,14 @@
-
+const { findShop, saveUser, deleteUser } = require('../services/databases/shops.service');
 
 async function getShops(req,res){
-    console.log('getShops');
-    
+    try {
+        const result = await findShop();
+        res.json(result)
+    } catch (err) {
+        console.error(err);
+        res.status(400);
+        res.json(err);
+    }
 }
 
 async function getShopById(req,res){
