@@ -1,4 +1,4 @@
-const { findShop, saveShop, deleteShop } = require('../services/databases/shops.service');
+const { findShop, saveShop, updateShop, deleteShop } = require('../services/databases/shops.service');
 
 async function getShops(req,res){
     try {
@@ -12,9 +12,8 @@ async function getShops(req,res){
 }
 
 async function getShopById(req,res){
-    const { id }  = req.params;
-
     try {
+        const { id }  = req.params;
         const result = await findShop(id);
         res.json(result)
     } catch (err) {
@@ -37,11 +36,30 @@ async function addShop(req,res){
 }
 
 async function updateShopById(req,res){
-    console.log('updateShop');
+    try {
+        const { id }  = req.params;
+        const data = req.body;
+        const result = await updateShop(id, data);
+        
+        res.json(result)
+    } catch (err) {
+        console.error(err);
+        res.status(400);
+        res.json(err);
+    }
 }
 
 async function deleteShopById(req,res){
-    console.log('deleteShop');
+    try {
+        const { id }  = req.params;
+        const result = await deleteShop(id);
+        
+        res.json(result)
+    } catch (err) {
+        console.error(err);
+        res.status(400);
+        res.json(err);
+    }
 }
 
 module.exports = { 

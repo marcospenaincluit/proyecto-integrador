@@ -17,17 +17,13 @@ async function saveShop(data){
     return shop.save()
 }
 
-async function deleteShop(id){
-    const result = await Shop.deleteOne({_id: id});
-    if (result.deletedCount === 0) {
-        const err = new Error();
-        Object.assign(err, {
-            status: 404,
-            message: 'User not found'
-        })
-        throw err;
-    }
-    return result;
+async function updateShop(id,data){
+    return await Shop.findByIdAndUpdate(id, data, {new: true})
+
 }
 
-module.exports = {findShop, saveShop, deleteShop}
+async function deleteShop(id){
+    return await Shop.findByIdAndDelete(id)
+}
+
+module.exports = {findShop, saveShop, updateShop, deleteShop}
