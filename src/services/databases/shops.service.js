@@ -1,14 +1,15 @@
 const Shop = require('../../models/shops.model');
 
-async function findShop(){
-    await Shop.find()
-        .then(data => {
-            res.json(data);
-        }).catch((err) => {
-            res.status(400);
-            console.error(err);
-            res.json(err);
-        })
+async function findShop(id=0){
+    let result = '';
+
+    if(id != 0){
+        result = await Shop.findById({_id: id});
+    }else{
+        result = await Shop.find();
+    }
+
+    return result;
 }
 
 async function saveShop(data){
