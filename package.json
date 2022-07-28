@@ -1,6 +1,6 @@
 {
   "name": "proyecto-integrador",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
@@ -12,9 +12,22 @@
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",
     "express": "~4.16.1",
+    "mongoose": "^6.5.0",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "description": "El práctico Integrador Node JS: Modelo CRUD",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pablo351/INTEGRADOR_BACK_NODE_INCLUIT.git"
+  },
+  "author": "Pablo Medina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pablo351/INTEGRADOR_BACK_NODE_INCLUIT/issues"
+  },
+  "homepage": "https://github.com/Pablo351/INTEGRADOR_BACK_NODE_INCLUIT#readme"
 }
