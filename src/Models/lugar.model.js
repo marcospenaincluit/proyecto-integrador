@@ -17,4 +17,4 @@ const lugarSchema = Schema({
 const Lugar  = new model('lugar',lugarSchema);
 
 
-module.export = Lugar;
+module.exports = Lugar;

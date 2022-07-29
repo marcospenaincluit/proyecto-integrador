@@ -5,6 +5,6 @@ var router = express.Router();
 router.post('/',addTrek);
 router.get('/',getTrek);
 router.patch('/',updateTrek);
-router.delete('/',deleteTrek);
+router.delete('/:id',deleteTrek);
 
 module.exports = router;
