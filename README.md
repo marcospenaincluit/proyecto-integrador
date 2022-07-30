@@ -1,4 +1,4 @@
-# CURSO TÉCNICO \#6: INTEGRADOR
+# CURSO TÉCNICO: NODE.JS
 
 ## Premisas:
 
@@ -18,7 +18,7 @@ El práctico Integrador deberá:
 
 3.  El recurso elegido por la temática debe ser geolocalizable.
 
-4.  Se debe incluir un campo a una URL de imagen.
+4.  Se debe incluir un campo a una URL de imagen. Por ejemplo: `https://i.imgur.com/jLfg3iO.png`
 
 ## Actividades:
 
@@ -51,4 +51,14 @@ Programación de los endpoints para un CRUD de un recurso.
 
 -   PATCH :: /resource/:id \-\--\> Edita un resource con los datos
     enviados en body.
+
+## Entrega
+La entrega debe ser enviando un correo con el link del Repositorio del proyecto ó el link a la pull request (si es que hicieron un Fork).
+
+Enviar a marcos.pena@incluit.com
+
+CC: Jonathan Brizio <jonathan.brizio@incluit.com>
+
+CC: trainings@incluit.com
+
 
