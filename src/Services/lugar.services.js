@@ -20,4 +20,24 @@ async function deleteOneTrek(id){
     return result;
 }
 
-module.exports={saveTrek , deleteOneTrek};
+async function updateOneTrek(id,data){
+    const result = await Lugar.updateOne(
+        {"id":id},
+        {$set:{
+            nombre : data.nombre,
+            localidad : data.localidad,
+            distanciaKm : data.distanciaKm,
+            coordenadas : data.coordenadas,
+            necesitaGuia : data.necesitaGuia,
+            tieneCosto : data.tieneCosto,
+            tipo : data.tipo,
+            imagen : data.imagen,
+            dificultad : data.dificultad,
+            tramo : data.tramo
+        }}
+    );
+
+    return result;
+}
+
+module.exports={saveTrek , deleteOneTrek, updateOneTrek};
