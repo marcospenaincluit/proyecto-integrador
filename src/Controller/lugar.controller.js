@@ -1,5 +1,5 @@
 const Lugar = require('../Models/lugar.model');
-const {saveTrek , deleteOneTrek, updateOneTrek} = require('../Services/lugar.services');
+const {saveTrek , deleteOneTrek, updateOneTrek , getFilterTreks, getOneTrek} = require('../Services/lugar.services');
 
     async function addTrek(req,res){
         // res.json({
@@ -85,4 +85,36 @@ const {saveTrek , deleteOneTrek, updateOneTrek} = require('../Services/lugar.ser
 
     }
 
-module.exports= {addTrek,getTrek,updateTrekById,deleteTrek};
+    async function filterTrek(req,res){
+        try{
+            const {nombre,localidad,dificultad} = req.query;
+            const result = await getFilterTreks(nombre,localidad,dificultad);
+            res.json(result);
+
+        }catch(err){
+            res.status(414);
+            console.error(err);
+            res.json({
+                Msg:"No se pudo encontrar ningun trek",
+                Error: err
+            });
+        }
+    }
+
+    async function findTrek(req,res){
+        try{
+            const {id} = req.params;
+            const result = await getOneTrek(id);
+            res.json(result);
+
+        }catch(err){
+            res.status(415);
+            console.error(err);
+            res.json({
+                Msg:"No se pudo encontrar el trek, verifique el ID",
+                Error: err
+            });
+        }
+    }
+
+module.exports= {addTrek,getTrek,updateTrekById,deleteTrek,filterTrek,findTrek};

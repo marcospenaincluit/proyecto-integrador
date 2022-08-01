@@ -40,4 +40,26 @@ async function updateOneTrek(id,data){
     return result;
 }
 
-module.exports={saveTrek , deleteOneTrek, updateOneTrek};
+async function getFilterTreks(nombre, localidad, dificultad){
+    
+    const result = Lugar.find({
+        $or:[
+            {nombre: nombre},
+            {localidad: localidad},
+            {dificultad: dificultad}
+        ]
+    })
+
+    return result;
+}
+
+async function getOneTrek(id){
+    
+    const result = Lugar.find({ _id: id })
+
+    return result;
+}
+
+
+
+module.exports={saveTrek , deleteOneTrek, updateOneTrek, getFilterTreks, getOneTrek};
