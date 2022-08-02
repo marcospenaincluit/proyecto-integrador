@@ -42,7 +42,7 @@ async function updateOneTrek(id,data){
 
 async function getFilterTreks(nombre, localidad, dificultad){
     
-    const result = Lugar.find({
+    const result = await Lugar.find({
         $or:[
             {nombre: nombre},
             {localidad: localidad},
@@ -52,6 +52,7 @@ async function getFilterTreks(nombre, localidad, dificultad){
 
     return result;
 }
+
 
 async function getOneTrek(id){
     

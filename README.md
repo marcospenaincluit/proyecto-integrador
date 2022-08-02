@@ -1,54 +1,87 @@
-# CURSO TÉCNICO \#6: INTEGRADOR
+# LUGARES PARA HACER TREKKING EN CÓRDOBA
 
-## Premisas:
+## Descripción
+A travez de esta API agregar, obtener, modificar y eliminar informacion. Los datos aqui presentados son lo escencial y basico que una persona aficionada al trekking requiere para ir a un lugar. 
 
+Entontraremos informacion sobre
+    * Nombre del lugar.
+    * Localidad de Córdoba donde se escuentra.
+    * Distancia a recorrer, aclaro que puede variar segun el sendero a escojer (muchos lugares poseen diferentes caminos que llevan al mismo lugar, segun eso puede variar la distancia y la dificultad del trayecto).
+    * La dificultad del trayecto.
+    * Si se necesita un guia para ir. En muchos casos no son necesario, pero siempre es recomendable cuando uno no conoce.
+    * Si posee algun tipo de costo el ingreso (no se considera costos de un guia).
+    * El tipo de lugar del que se trata. Podemos encontrar cerros, miradores, monumentos, parques nacionales, etc
+    * Un link a una imagen de referencia
+    * Un enlace de descarga de un archivo .gpx . Sirve para que su pueda descargar el archivo en diferentes aparatos ( celular, relojes, GPS portatiles entre otros). Gracias a este archivo podremos descargar el recorrido y asi guiarnos por todo el camino.
 
-El práctico Integrador deberá:
+##  Metodos para realizar las Request
 
-1.  El trabajo deberá estar relacionado con Mendiolaza u otro municipio
-    de la provincia de Córdoba.
+### GET (Obtener Datos)
 
-2.  Darles a los participantes una elección libre de la temática:
-
-    a.  Lugares de Gastronomía.
-
-    b.  Puntos interés.
-
-    c.  Paradas de transporte urbano.
-
-3.  El recurso elegido por la temática debe ser geolocalizable.
-
-4.  Se debe incluir un campo a una URL de imagen.
-
-## Actividades:
-
-### Node.js - Especificaciones 
----------------------------------------------
-
-Se solicita un backend hecho en Node.js y Express.js.
-
-Se debe respetar la estructura de los proyectos vistos en el curso.
+* Consultar todos
+    http://localhost:3000/
 
 
-### Actividad \#1: 
-Inicializar proyecto tanto de express como en github,
-definir scripts en package.json, definir rutas y config de conexión a BD
-Mongodb. Configurar .gitignore, credenciales sensibles en .env.
+* Consultar uno segun ID
+    http://localhost:3000/id/:id
 
-### Actividad \#2: 
-Programación de los endpoints para un CRUD de un recurso.
+    ejemplo: http://localhost:3000/id/62e5c729aa605f13810eb6db
 
--   GET :: /resource \-\--\> Trae un array con todos los resources.
 
--   GET :: /resource/:id \-\--\> Trae el resource con la id
-    especificada.
+* Consulas filtrando segun query
+    http://localhost:3000/filter
 
--   POST :: /resource \-\--\> Crea un solo resource a la base de datos.
-    Recibe datos por body.
+    Las query pueden ser segun:
+        * nombre
+        * localidad
+        * dificultad
+    
+    ejemplos:
+        1) http://localhost:3000/filter?nombre=El%20Mastil
+        2) http://localhost:3000/filter?localidad=Altas%20Cumbres
+        3) http://localhost:3000/filter?dificultad=moderada
 
--   DELETE :: /resource/:id \-\--\> Borra un elemento de la base de
-    datos.
+### POST (Agregar datos)
 
--   PATCH :: /resource/:id \-\--\> Edita un resource con los datos
-    enviados en body.
+ http://localhost:3000/
 
+    ejemplo del Json Body
+        {
+            "nombre": "Champaqui",
+            "localidad": "Altas Cumbres",
+            "distanciaKm": 47,
+            "coordenadas": {
+                "Altitud": -31.987470073785627, 
+                "Longitud": -64.93675228199244
+            },
+            "necesitaGuia": true,
+            "tieneCosto": true,
+            "tipo": "Cerro",
+            "imagen": "https://chuncania.com/wp-content/uploads/2020/07/cerro-champaqui-traslasierra-cordoba.jpg",
+            "dificultad": "alta",
+            "tramo": "https://drive.google.com/file/d/136kjLiSvoZHJEkslQecMs7uaqZlBEcDA/view?usp=sharing"
+        }
+
+### DELETE (Eliminar datos)
+
+ http://localhost:3000/:id
+
+Se debe pasar como parametro en la URL, el ID del elemento a borrar
+
+Ejemplo:  http://localhost:3000/62e5c8c5aa605f13810eb6de
+
+
+### PATCH (Modificar Datos)
+
+http://localhost:3000/:id
+
+Se debe pasar como parametro en la URL, el ID del elemento a modificar, y un JSon en el body con los datos que se quieren modificar
+
+ejemplo si desea modificar solo la dificultad del trekking:
+
+http://localhost:3000/62e5c729aa605f13810eb6db
+
+Bodyraw (json)
+    {
+    "dificultad": "baja"
+    }
