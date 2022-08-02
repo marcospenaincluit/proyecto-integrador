@@ -4,15 +4,15 @@
 A travez de esta API agregar, obtener, modificar y eliminar informacion. Los datos aqui presentados son lo escencial y basico que una persona aficionada al trekking requiere para ir a un lugar. 
 
 Entontraremos informacion sobre
-    * Nombre del lugar.
-    * Localidad de Córdoba donde se escuentra.
-    * Distancia a recorrer, aclaro que puede variar segun el sendero a escojer (muchos lugares poseen diferentes caminos que llevan al mismo lugar, segun eso puede variar la distancia y la dificultad del trayecto).
-    * La dificultad del trayecto.
-    * Si se necesita un guia para ir. En muchos casos no son necesario, pero siempre es recomendable cuando uno no conoce.
-    * Si posee algun tipo de costo el ingreso (no se considera costos de un guia).
-    * El tipo de lugar del que se trata. Podemos encontrar cerros, miradores, monumentos, parques nacionales, etc
-    * Un link a una imagen de referencia
-    * Un enlace de descarga de un archivo .gpx . Sirve para que su pueda descargar el archivo en diferentes aparatos ( celular, relojes, GPS portatiles entre otros). Gracias a este archivo podremos descargar el recorrido y asi guiarnos por todo el camino.
+    * Nombre del lugar./n
+    * Localidad de Córdoba donde se escuentra. /n
+    * Distancia a recorrer, aclaro que puede variar segun el sendero a escojer (muchos lugares poseen diferentes caminos que llevan al mismo lugar, segun eso puede variar la distancia y la dificultad del trayecto). /n
+    * La dificultad del trayecto. /n
+    * Si se necesita un guia para ir. En muchos casos no son necesario, pero siempre es recomendable cuando uno no conoce. /n
+    * Si posee algun tipo de costo el ingreso (no se considera costos de un guia)./n
+    * El tipo de lugar del que se trata. Podemos encontrar cerros, miradores, monumentos, parques nacionales, etc /n
+    * Un link a una imagen de referencia /n
+    * Un enlace de descarga de un archivo .gpx . Sirve para que su pueda descargar el archivo en diferentes aparatos ( celular, relojes, GPS portatiles entre otros). Gracias a este archivo podremos descargar el recorrido y asi guiarnos por todo el camino. /n
 
 ##  Metodos para realizar las Request
 
