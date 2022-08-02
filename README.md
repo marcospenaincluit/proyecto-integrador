@@ -81,7 +81,8 @@ ejemplo si desea modificar solo la dificultad del trekking:
 
 http://localhost:3000/62e5c729aa605f13810eb6db
 
-Bodyraw (json)
+ejemplo del Json Body
     {
-    "dificultad": "baja"
+        "distanciaKm": 7,
+        "dificultad": "baja"
     }
