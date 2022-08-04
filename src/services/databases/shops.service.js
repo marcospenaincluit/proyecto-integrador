@@ -14,7 +14,9 @@ async function findShop(id=0){
 
 async function saveShop(data){
     const shop = new Shop(data);
-    return shop.save()
+    let result = await shop.save()
+    
+    return result
 }
 
 async function updateShop(id,data){
