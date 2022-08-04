@@ -1,21 +1,31 @@
-require('dotenv').config();
+// Requires
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+const config = require('config')
+const mongoose = require('mongoose')
 
+// Routers
 const indexRouter = require('./src/routes/index');
-const usersRouter = require('./src/routes/users');
+const BirdWatchingRouter = require('./src/routes/birdWatching');
+
+const dbConnectionString = config.get("database.host")
 
 const app = express();
 
-app.use(logger('dev'));
+// Mongoose connection to MongoDB
+mongoose
+    .connect(dbConnectionString, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => console.log("Connected to MONGO"))
+    .catch((err) => { throw err })
+
+// Express configs
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
+// Use routers
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/BirdWatching', BirdWatchingRouter)
 
 module.exports = app;
