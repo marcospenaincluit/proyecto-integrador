@@ -3,7 +3,7 @@ function getIndex(req, res){
         msj: "Bienvenido al sistema Gastronomia Río Tercero - API",
         endpints: {
             GET: "/riotercero/shops/",
-            GET: "/riotercero/shops/:id",
+            GET2: "/riotercero/shops/:id",
             POST: "/riotercero/shops/new",
             DELETE: "/riotercero/shops/:id",
             PATCH: "/riotercero/shops/:id"
