@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const config = require('config');
 
+const indexRouter = require('./src/routes/index');
 const shopsRouter = require('./src/routes/shop.router');
 const mongoConnectionString = config.get('dataBase.host')
 
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use('/', indexRouter);
 app.use('/riotercero', shopsRouter);
 
 module.exports = app;
