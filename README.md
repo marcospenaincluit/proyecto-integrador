@@ -1,6 +1,7 @@
 # Entrega del Trabajo Práctico Integrador
 
 Se creó una API para registrar avistajes de aves de la zona.
+Se whitelisteó a todas las IP desde Atlas y se entrega con el .env y las credenciales con usuario administrador
 #### Endpoints:
 - GET :: localhost:3000/
 Devuelve un array con todos los avistajes guardados en la base de datos.
