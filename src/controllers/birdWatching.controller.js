@@ -1,22 +1,67 @@
-function getAllBirdWatchings(req, res) {
-    res.send("Get all bird watchings")
+const Watching = require('../models/birdWatching.model')
+const { create, readAll, readOne, deleteById, updateById } = require('../services/birdWatching.service')
+
+
+async function getAllBirdWatchings(req, res) {
+    try {
+        const result = await (readAll())
+        res.json(result)
+    } catch (err) {
+        res.send(err)
+    }
 }
 
 
-function getOneBirdWatching(req, res) {
-    res.send(`Getting ${req.params.id}`)
+async function getOneBirdWatching(req, res) {
+    try {
+        const id = req.params.id
+        const result = await (readOne(id))
+        res.json(result)
+    } catch (err) {
+        res.json(err)
+    }
 }
 
 
-function postBirdWatching(req, res) {
-    res.send("Posting bird watching")
+async function postBirdWatching(req, res) {
+    try {
+        const data = req.body
+        const result = await create(data)
+        res.json(result)
+    } catch (err) {
+        res.json(err)
+    }
+
 }
 
-function updateBirdWatching(req, res) {
-    res.send(`Updating ${req, params.id}`)
-}
-function deleteBirdWatching(req, res) {
-    res.send(`Deleting ${req.params.id}`)
+
+async function updateBirdWatching(req, res) {
+    try {
+        const data = req.body
+        const id = req.params.id
+        const result = await updateById(data, id)
+        res.json(result)
+    } catch (err) {
+        res.send(err)
+    }
 }
 
-module.exports = { getOneBirdWatching, getAllBirdWatchings, postBirdWatching, updateBirdWatching, deleteBirdWatching };
+
+async function deleteBirdWatching(req, res) {
+    try {
+        const { id } = req.params
+        const result = await deleteById(id)
+        res.json(result)
+
+    } catch (err) {
+        res.json(err)
+    }
+}
+
+module.exports = {
+    getOneBirdWatching,
+    getAllBirdWatchings,
+    postBirdWatching,
+    updateBirdWatching,
+    deleteBirdWatching
+};

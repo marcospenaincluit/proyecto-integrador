@@ -4,7 +4,6 @@ const config = require('config')
 const mongoose = require('mongoose')
 
 // Routers
-const indexRouter = require('./src/routes/index');
 const BirdWatchingRouter = require('./src/routes/birdWatching');
 
 const dbConnectionString = config.get("database.host")
@@ -25,7 +24,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Use routers
-app.use('/', indexRouter);
-app.use('/BirdWatching', BirdWatchingRouter)
+app.use('/', BirdWatchingRouter)
 
 module.exports = app;

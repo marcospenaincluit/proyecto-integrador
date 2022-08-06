@@ -9,12 +9,12 @@ router.get('/', getAllBirdWatchings)
 router.get('/:id', getOneBirdWatching)
 
 //Create one
-router.post('/create', postBirdWatching)
+router.post('/', postBirdWatching)
 
 // Updating one
-router.patch('/update/:id', updateBirdWatching)
+router.patch('/:id', updateBirdWatching)
 
 // Deleting one
-router.delete('/delete/:id', deleteBirdWatching)
+router.delete('/:id', deleteBirdWatching)
 
 module.exports = router

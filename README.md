@@ -1,3 +1,46 @@
+# Entrega del Trabajo Práctico Integrador
+
+Se creó una API para registrar avistajes de aves de la zona.
+#### Endpoints:
+- GET :: localhost:3000/
+Devuelve un array con todos los avistajes guardados en la base de datos.
+---
+- GET :: localhost:3000/:id
+Devuelve el avistaje con el "_id" correspondiente.
+---
+- POST :: localhost:3000/
+	Recibe un JSON con la forma de
+```
+{
+"birdName": "Nombre del ave a registrar", 
+"pos":{
+		"lat":"Latitud", 
+		"lng":"Longitud"},
+"notes":"Notas sobre el avistaje", 
+"img":"URL a la foto del ave avistada, por defecto usa un placeholder"
+"date":"Fecha del avistaje, por defecto toma la fecha actual"
+}
+```
+y lo guarda en la base de datos.
+
+---
+- PATCH :: localhost:3000/:id
+Recibe un JSON con propiedades del JSON anterior y actualiza esas propiedades en el avistaje del "_id" correspondiente.
+---
+-DELETE :: localhost:3000/:id
+Borra el avistaje con el "_id" correspondiente.
+
+---
+---
+## Ideas para agregar a la API
+- Verificación de nombre utilizando la API de eBird.
+- Agregar logger a la base de datos
+---
+¡Muchas gracias por todo!
+_Atte: Santiago Sferco_
+
+
+
 # CURSO TÉCNICO \#6: INTEGRADOR
 
 ## Premisas:
